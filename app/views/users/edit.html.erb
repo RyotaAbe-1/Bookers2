@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-5 col-md-8 col-sm-12 mx-auto">
+      <h2>User info</h2>
+      
+      <%= render "layouts/error_messages", user: @user %>
+      
+      <%= form_with model: @user, local: true do |f| %>
+        <div class="form-group">
+          <label for="user_name">Name</label>
+          <%= f.text_field :name, class:"form-control user_name" %>
+        </div>
+        <div class="form-group">
+          <label for="user_image" class="d-block">Image</label>
+          <%= f.attachment_field :profile_image, class: "form-control-file user_image" %>
+        </div>
+        <div class="form-group">
+          <label for="user_introduction" class="d-block">Introduction</label>
+          <%= f.text_area :introduction, class: "form-control user_introduction" %>
+        </div>
+          <%= f.submit "Update User", class: "btn btn-secondary" %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
